@@ -44,10 +44,10 @@ RUN mkdir -p /var/log/snort && \
     mkdir -p /etc/snort/preproc_rules && \
     mkdir -p /etc/snort/so_rules && \
     mkdir -p /etc/snort/etc && \
-    cp -r /opt/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}/rules /etc/snort/rules && \
-    cp -r /opt/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}/preproc_rules /etc/snort/preproc_rules && \
-    cp -r /opt/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}/so_rules /etc/snort/so_rules && \
-    cp -r /opt/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}/etc /etc/snort/etc && \
+    # cp -r /opt/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}/rules /etc/snort/rules && \
+    # cp -r /opt/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}/preproc_rules /etc/snort/preproc_rules && \
+    # cp -r /opt/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}/so_rules /etc/snort/so_rules && \
+    # cp -r /opt/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}/etc /etc/snort/etc && \
     # touch /etc/snort/rules/local.rules && \
     touch /etc/snort/rules/white_list.rules /etc/snort/rules/black_list.rules
 
