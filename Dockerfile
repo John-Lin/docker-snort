@@ -39,11 +39,11 @@ ENV SNORT_RULES_SNAPSHOT 2972
 ADD snortrules-snapshot-${SNORT_RULES_SNAPSHOT} /opt
 RUN mkdir -p /var/log/snort && \
     mkdir -p /usr/local/lib/snort_dynamicrules && \
-    # mkdir -p /etc/snort && \
-    mkdir -p /etc/snort/rules && \
-    mkdir -p /etc/snort/preproc_rules && \
-    mkdir -p /etc/snort/so_rules && \
-    mkdir -p /etc/snort/etc && \
+    mkdir -p /etc/snort && \
+    # mkdir -p /etc/snort/rules && \
+    # mkdir -p /etc/snort/preproc_rules && \
+    # mkdir -p /etc/snort/so_rules && \
+    # mkdir -p /etc/snort/etc && \
     cp -r /opt/rules /etc/snort/rules && \
     cp -r /opt/preproc_rules /etc/snort/preproc_rules && \
     cp -r /opt/so_rules /etc/snort/so_rules && \
