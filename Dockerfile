@@ -7,6 +7,7 @@ MAINTAINER John Lin <linton.tw@gmail.com>
 RUN apt-get update && \
     apt-get install -y \
         python-setuptools \
+        python-pip \
         wget \
         build-essential \
         bison \
@@ -19,7 +20,7 @@ RUN apt-get update && \
         libnetfilter-queue1 \
         vim \
         tmux \
-        unzip
+        unzip && pip install fabric
 
 # Define working directory.
 WORKDIR /opt
@@ -43,8 +44,9 @@ RUN wget --no-check-certificate \
         https://github.com/John-Lin/pigrelay/archive/master.zip \
     && unzip master.zip
 
-ENV SNORT_RULES_SNAPSHOT 2972
-ADD snortrules-snapshot-${SNORT_RULES_SNAPSHOT} /opt
+# ENV SNORT_RULES_SNAPSHOT 2972
+# ADD snortrules-snapshot-${SNORT_RULES_SNAPSHOT} /opt
+ADD mysnortrules /opt
 RUN mkdir -p /var/log/snort && \
     mkdir -p /usr/local/lib/snort_dynamicrules && \
     mkdir -p /etc/snort && \
@@ -52,10 +54,19 @@ RUN mkdir -p /var/log/snort && \
     # mkdir -p /etc/snort/preproc_rules && \
     # mkdir -p /etc/snort/so_rules && \
     # mkdir -p /etc/snort/etc && \
+
+    # mysnortrules rules
     cp -r /opt/rules /etc/snort/rules && \
     cp -r /opt/preproc_rules /etc/snort/preproc_rules && \
     cp -r /opt/so_rules /etc/snort/so_rules && \
     cp -r /opt/etc /etc/snort/etc && \
+
+    # snapshot2972 rules
+    # cp -r /opt/rules /etc/snort/rules && \
+    # cp -r /opt/preproc_rules /etc/snort/preproc_rules && \
+    # cp -r /opt/so_rules /etc/snort/so_rules && \
+    # cp -r /opt/etc /etc/snort/etc && \
+
     # touch /etc/snort/rules/local.rules && \
     touch /etc/snort/rules/white_list.rules /etc/snort/rules/black_list.rules
 
