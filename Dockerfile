@@ -58,8 +58,11 @@ RUN mkdir -p /var/log/snort && \
 
     # mysnortrules rules
     cp -r /opt/rules /etc/snort/rules && \
-    cp -r /opt/preproc_rules /etc/snort/preproc_rules && \
-    cp -r /opt/so_rules /etc/snort/so_rules && \
+    # Due to empty folder so mkdir
+    mkdir -p /etc/snort/preproc_rules && \
+    mkdir -p /etc/snort/so_rules && \
+    # cp -r /opt/preproc_rules /etc/snort/preproc_rules && \
+    # cp -r /opt/so_rules /etc/snort/so_rules && \
     cp -r /opt/etc /etc/snort/etc && \
 
     # snapshot2972 rules
