@@ -5,7 +5,7 @@ FROM ubuntu:14.04
 MAINTAINER John Lin <linton.tw@gmail.com>
 
 RUN apt-get update && \
-    apt-get install -qy --no-install-recommends \
+    apt-get install -y \
         python-setuptools \
         wget \
         build-essential \
