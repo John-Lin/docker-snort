@@ -1,6 +1,6 @@
 # docker-snort
 
-Snort in Docker for Network Functions Virtualization (NFV) 
+Snort in Docker for Network Functions Virtualization (NFV)
 
 The Snort Version 2.9.7.2
 
@@ -9,13 +9,13 @@ You may need to run as `sudo`
 Attach the snort in container to have full access to the network
 
 ```
-docker run -it --rm --net=host linton/snort /bin/bash
+docker run -it --rm --net=host linton/docker-snort /bin/bash
 ```
 
 Or you may need to add --cap-add=NET_ADMIN or --privileged (unsafe)
 
 ```
-docker run -it --rm --net=host --cap-add=NET_ADMIN linton/snort /bin/bash
+docker run -it --rm --net=host --cap-add=NET_ADMIN linton/docker-snort /bin/bash
 ```
 
 
