@@ -4,7 +4,9 @@ FROM ubuntu:14.04
 
 MAINTAINER John Lin <linton.tw@gmail.com>
 
-RUN apt-get update && apt-get -y install \
+RUN apt-get update && \
+    apt-get -qy install --no-install-recommends \
+        python-setuptools \
         wget \
         build-essential \
         bison \
