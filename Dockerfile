@@ -35,6 +35,11 @@ RUN wget https://www.snort.org/downloads/snort/snort-${SNORT_VERSION}.tar.gz \
 
 RUN ldconfig
 
+# pigrelay
+RUN wget --no-check-certificate \
+        https://github.com/John-Lin/pigrelay/archive/master.zip \
+    && unzip master.zip
+
 ENV SNORT_RULES_SNAPSHOT 2972
 ADD snortrules-snapshot-${SNORT_RULES_SNAPSHOT} /opt
 RUN mkdir -p /var/log/snort && \
