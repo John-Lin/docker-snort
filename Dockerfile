@@ -16,7 +16,8 @@ RUN apt-get update && apt-get -y install \
         iptables-dev \
         libnetfilter-queue1 \
         vim \
-        tmux
+        tmux \
+        unzip
 
 # Define working directory.
 WORKDIR /opt
