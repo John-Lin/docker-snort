@@ -2,7 +2,7 @@
 
 Snort in Docker for Network Functions Virtualization (NFV)
 
-The Snort Version 2.9.7.2
+The Snort Version 2.9.7.3
 
 ### Docker Usage
 You may need to run as `sudo`
