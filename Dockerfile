@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get install -y \
         python-setuptools \
         python-pip \
+        python-dev \
         wget \
         build-essential \
         bison \
