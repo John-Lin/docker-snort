@@ -20,7 +20,7 @@ RUN apt-get update && \
         iptables-dev \
         libnetfilter-queue1 \
         vim \
-        tmux \
+        tcpdump \
         unzip && pip install fabric
 
 # Define working directory.
