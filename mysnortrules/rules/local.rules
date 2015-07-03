@@ -5,18 +5,22 @@
 # Certified Rules License Agreement (v 2.0), and (ii) rules that were created by
 # Sourcefire and other third parties (the "GPL Rules") that are distributed under the
 # GNU General Public License (GPL), v2.
-# 
+#
 # The VRT Certified Rules are owned by Sourcefire, Inc. The GPL Rules were created
 # by Sourcefire and other third parties. The GPL Rules created by Sourcefire are
 # owned by Sourcefire, Inc., and the GPL Rules not created by Sourcefire are owned by
 # their respective creators. Please see http://www.snort.org/snort/snort-team/ for a
 # list of third party owners and their respective copyrights.
-# 
+#
 # In order to determine what rules are VRT Certified Rules or GPL Rules, please refer
 # to the VRT Certified Rules License Agreement (v2.0).
 #
 #-------------
 # LOCAL RULES
 #-------------
-alert icmp any any -> any any (msg:"Pinging...";sid:1000004;)
-alert tcp any any -> any 6667 (msg:"Bot C&C Servers on IRC protocol";sid:1000005;)
+alert icmp any any -> 8.8.8.8 any (msg:"Pinging...";sid:1000004;)
+alert tcp any any -> any 6667 (msg:"IRC protocol traffic";sid:1000005;)
+alert tcp any 6667 -> any any (msg:"C&C Server sent netinfo command";content:"!netinfo";sid:1000006;)
+alert tcp any 6667 -> any any (msg:"C&C Server sent sysinfo command";content:"!sysinfo";sid:1000007;)
+alert tcp any 6667 -> any any (msg:"C&C Server sent port scan command";content:"!scan";sid:1000008;)
+alert tcp any 6667 -> any any (msg:"C&C Server sent download command";content:"!download";sid:1000009;)
