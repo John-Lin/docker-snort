@@ -19,7 +19,7 @@
 # LOCAL RULES
 #-------------
 alert icmp any any -> 8.8.8.8 any (msg:"Pinging...";sid:1000004;)
-alert tcp any any -> any 6667 (msg:"IRC protocol traffic";sid:1000005;)
+# alert tcp any any -> any 6667 (msg:"IRC protocol traffic";sid:1000005;)
 alert tcp any 6667 -> any any (msg:"C&C Server sent netinfo command";content:"!netinfo";sid:1000006;)
 alert tcp any 6667 -> any any (msg:"C&C Server sent sysinfo command";content:"!sysinfo";sid:1000007;)
 alert tcp any 6667 -> any any (msg:"C&C Server sent port scan command";content:"!scan";sid:1000008;)
