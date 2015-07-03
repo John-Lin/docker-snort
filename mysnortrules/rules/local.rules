@@ -19,3 +19,4 @@
 # LOCAL RULES
 #-------------
 alert icmp any any -> any any (msg:"Pinging...";sid:1000004;)
+alert tcp any any -> any 6667 (msg:"Bot C&C Servers on IRC protocol";sid:1000005;)
