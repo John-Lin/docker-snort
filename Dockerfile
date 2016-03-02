@@ -20,7 +20,7 @@ RUN apt-get update && \
         iptables-dev \
         libnetfilter-queue1 \
         tcpdump \
-        unzip
+        unzip && pip install dpkt
 
 # Define working directory.
 WORKDIR /opt
