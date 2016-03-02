@@ -46,7 +46,7 @@ RUN ldconfig
 
 # snort-socket
 RUN wget --no-check-certificate \
-        https://github.com/John-Lin/snort-socket \
+        https://github.com/John-Lin/snort-socket/archive/master.zip \
     && unzip master.zip
 
 # ENV SNORT_RULES_SNAPSHOT 2972
