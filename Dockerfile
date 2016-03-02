@@ -19,20 +19,19 @@ RUN apt-get update && \
         zlib1g-dev \
         iptables-dev \
         libnetfilter-queue1 \
-        vim \
         tcpdump \
-        unzip && pip install fabric
+        unzip
 
 # Define working directory.
 WORKDIR /opt
 
-ENV DAQ_VERSION 2.0.5
+ENV DAQ_VERSION 2.0.6
 RUN wget https://www.snort.org/downloads/snort/daq-${DAQ_VERSION}.tar.gz \
     && tar xvfz daq-${DAQ_VERSION}.tar.gz \
     && cd daq-${DAQ_VERSION} \
     && ./configure; make; make install
 
-ENV SNORT_VERSION 2.9.7.3
+ENV SNORT_VERSION 2.9.8.0
 RUN wget https://www.snort.org/downloads/snort/snort-${SNORT_VERSION}.tar.gz \
     && tar xvfz snort-${SNORT_VERSION}.tar.gz \
     && cd snort-${SNORT_VERSION} \
@@ -41,8 +40,13 @@ RUN wget https://www.snort.org/downloads/snort/snort-${SNORT_VERSION}.tar.gz \
 RUN ldconfig
 
 # pigrelay
+# RUN wget --no-check-certificate \
+#         https://github.com/John-Lin/pigrelay/archive/master.zip \
+#     && unzip master.zip
+
+# snort-socket
 RUN wget --no-check-certificate \
-        https://github.com/John-Lin/pigrelay/archive/master.zip \
+        https://github.com/John-Lin/snort-socket \
     && unzip master.zip
 
 # ENV SNORT_RULES_SNAPSHOT 2972
