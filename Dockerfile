@@ -21,7 +21,7 @@ RUN apt-get update && \
         libnetfilter-queue1 \
         tcpdump \
         unzip \
-        vim && pip install -U pip dpkt
+        vim && pip install -U pip dpkt snortunsock
 
 # Define working directory.
 WORKDIR /opt
@@ -45,9 +45,9 @@ RUN ldconfig
 #         https://github.com/John-Lin/pigrelay/archive/master.zip \
 #     && unzip master.zip
 
-# snort-socket
+# snortunsock
 RUN wget --no-check-certificate \
-        https://github.com/John-Lin/snort-socket/archive/master.zip \
+        https://github.com/John-Lin/snortunsock/archive/master.zip \
     && unzip master.zip
 
 # ENV SNORT_RULES_SNAPSHOT 2972
