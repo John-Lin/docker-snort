@@ -21,7 +21,7 @@ RUN apt-get update && \
         libnetfilter-queue1 \
         tcpdump \
         unzip \
-        vim && pip install dpkt
+        vim && pip install -U pip dpkt
 
 # Define working directory.
 WORKDIR /opt
